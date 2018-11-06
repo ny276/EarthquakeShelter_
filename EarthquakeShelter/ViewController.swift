@@ -62,7 +62,7 @@ class ViewController: UIViewController, MKMapViewDelegate, XMLParserDelegate {
         for item in items {
             lat = item["xcord"]
             long = item["ycord"]
-            name = item["t_acmdfclty_nm"]
+            name = item["vt_acmdfclty_nm"]
             loc = item["dtl_adres"]
             dLat = Double(lat!)
             dLong = Double(long!)
