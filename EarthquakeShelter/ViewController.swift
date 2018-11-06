@@ -76,9 +76,13 @@ class ViewController: UIViewController, MKMapViewDelegate, XMLParserDelegate {
     
     
     func zoomToRegion() {
-        let location = CLLocationCoordinate2D(latitude: 35.180100, longitude: 129.081017)
-        let span = MKCoordinateSpan(latitudeDelta: 0.27, longitudeDelta: 0.27)
-        let region = MKCoordinateRegion(center: location, span: span)
+        
+        print("zoom to Location")
+        
+        // 부산지도 구글 중심정 35.163246, 129.066297
+        
+        let location = CLLocationCoordinate2D(latitude: 35.163246, longitude: 129.066297)
+        let region = MKCoordinateRegionMakeWithDistance(location, 26000.0, 26000.3)
         myMapView.setRegion(region, animated: true)
     }
     
