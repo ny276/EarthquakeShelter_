@@ -1,8 +1,8 @@
 //
-//  Busandata.swift
+//  BusanData.swift
 //  EarthquakeShelter
 //
-//  Created by D7703_18 on 2018. 11. 5..
+//  Created by D7703_18 on 2018. 11. 6..
 //  Copyright © 2018년 201550057. All rights reserved.
 //
 
@@ -19,6 +19,6 @@ class BusanData: NSObject, MKAnnotation {
         self.coordinate = coordinate
         self.title = title
         self.subtitle = subtitle
-      
+        
     }
 }

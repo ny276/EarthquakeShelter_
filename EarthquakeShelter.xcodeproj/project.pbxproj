@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C9DBE0C218FE6AE004BD758 /* BusanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DBE0B218FE6AE004BD758 /* BusanData.swift */; };
+		3C994F6A21918D1E008C668B /* BusanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C994F6921918D1E008C668B /* BusanData.swift */; };
 		3CB34D8E218FD8410061253F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB34D8D218FD8410061253F /* AppDelegate.swift */; };
 		3CB34D90218FD8410061253F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB34D8F218FD8410061253F /* ViewController.swift */; };
 		3CB34D93218FD8410061253F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB34D91218FD8410061253F /* Main.storyboard */; };
@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3C9DBE0B218FE6AE004BD758 /* BusanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusanData.swift; path = ../BusanData.swift; sourceTree = "<group>"; };
+		3C994F6921918D1E008C668B /* BusanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusanData.swift; sourceTree = "<group>"; };
 		3CB34D8A218FD8410061253F /* EarthquakeShelter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarthquakeShelter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB34D8D218FD8410061253F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CB34D8F218FD8410061253F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +66,6 @@
 		3CB34D8C218FD8410061253F /* EarthquakeShelter */ = {
 			isa = PBXGroup;
 			children = (
-				3C9DBE0B218FE6AE004BD758 /* BusanData.swift */,
 				3CF5059A218FDB9E002AB3E5 /* 지진대피요령.jpg */,
 				3CB34D8D218FD8410061253F /* AppDelegate.swift */,
 				3CB34D8F218FD8410061253F /* ViewController.swift */,
@@ -76,6 +75,7 @@
 				3CB34D94218FD8440061253F /* Assets.xcassets */,
 				3CB34D96218FD8440061253F /* LaunchScreen.storyboard */,
 				3CB34D99218FD8440061253F /* Info.plist */,
+				3C994F6921918D1E008C668B /* BusanData.swift */,
 			);
 			path = EarthquakeShelter;
 			sourceTree = "<group>";
@@ -162,7 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CF5059F218FDD4F002AB3E5 /* ShelterViewController.swift in Sources */,
-				3C9DBE0C218FE6AE004BD758 /* BusanData.swift in Sources */,
+				3C994F6A21918D1E008C668B /* BusanData.swift in Sources */,
 				3CB34D90218FD8410061253F /* ViewController.swift in Sources */,
 				3CB34D8E218FD8410061253F /* AppDelegate.swift in Sources */,
 			);
