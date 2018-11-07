@@ -124,7 +124,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="myMapView" destination="JcA-zz-VMr" id="zdf-1d-RUf"/>
+                        <outlet property="myMapView" destination="JcA-zz-VMr" id="FZD-Ek-XMn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

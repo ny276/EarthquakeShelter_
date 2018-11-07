@@ -10,7 +10,6 @@ import UIKit
 import MapKit
 
 class ViewController: UIViewController, MKMapViewDelegate, XMLParserDelegate {
-
     @IBOutlet var myMapView: MKMapView!
     
     var annotation: BusanData?
@@ -21,47 +20,39 @@ class ViewController: UIViewController, MKMapViewDelegate, XMLParserDelegate {
     var currentElement = ""
     
     var address: String?
-    var dtl_adres: String?
-    var vt_acmdfclty_nm: String?
-    var name : String?
     var lat: String?
     var long: String?
+    var name: String?
     var loc: String?
     var dLat: Double?
     var dLong: Double?
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let path = Bundle.main.url(forResource: "Shelter", withExtension: "xml") {
-            //print(path)
-            if let parser = XMLParser(contentsOf: path) {
-                parser.delegate = self
-                
-                if parser.parse() {
-                    print("parse succeed!")
-                    for item in items {
-                        print("item \(item["dtl_adres"]!)")
-                    }
+        if let path = Bundle.main.url(forResource: "Shelter", withExtension: "xml"){
+            if let myParser = XMLParser(contentsOf: path) {
+                myParser.delegate = self
+                if myParser.parse() {
+                    print("파싱 성공")
                 } else {
-                    print("parse failed!")
+                    print("파싱 실패")
                 }
+            } else {
+                print("파싱 오류1")
             }
         } else {
-            print("xml file not found")
+            print("XML 파일 없음")
         }
         
-        // Map
         myMapView.delegate = self
         
-        //  초기 맵 region 설정
+        // 초기맵 설정
         zoomToRegion()
         
         for item in items {
-            lat = item["xcord"]
-            long = item["ycord"]
+            lat = item["ycord"]
+            long = item["xcord"]
             name = item["vt_acmdfclty_nm"]
             loc = item["dtl_adres"]
             dLat = Double(lat!)
@@ -71,13 +62,12 @@ class ViewController: UIViewController, MKMapViewDelegate, XMLParserDelegate {
         }
         myMapView.showAnnotations(annotations, animated: true)
         myMapView.addAnnotations(annotations)
-
-            }
-    
+        
+    }
     
     func zoomToRegion() {
         let location = CLLocationCoordinate2D(latitude: 35.180100, longitude: 129.081017)
-        let span = MKCoordinateSpan(latitudeDelta: 0.0027, longitudeDelta: 0.0027)
+        let span = MKCoordinateSpan(latitudeDelta: 0.27, longitudeDelta: 0.27)
         let region = MKCoordinateRegion(center: location, span: span)
         myMapView.setRegion(region, animated: true)
     }
@@ -109,5 +99,4 @@ class ViewController: UIViewController, MKMapViewDelegate, XMLParserDelegate {
         }
         
     }
-    
 }
