@@ -8,10 +8,13 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class ViewController: UIViewController, MKMapViewDelegate, XMLParserDelegate {
+class ViewController: UIViewController, MKMapViewDelegate, XMLParserDelegate,CLLocationManagerDelegate  {
+    
     @IBOutlet var myMapView: MKMapView!
     
+     let locationManager = CLLocationManager()
     var annotation: BusanData?
     var annotations: Array = [BusanData]()
     
@@ -29,6 +32,16 @@ class ViewController: UIViewController, MKMapViewDelegate, XMLParserDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.locationManager.delegate = self
+        
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        self.locationManager.startUpdatingLocation()
+        
+        self.myMapView.showsUserLocation = true
         
         if let path = Bundle.main.url(forResource: "Shelter", withExtension: "xml"){
             if let myParser = XMLParser(contentsOf: path) {
@@ -98,5 +111,16 @@ class ViewController: UIViewController, MKMapViewDelegate, XMLParserDelegate {
             item[currentElement] = data
         }
         
+    }
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let location = locations.last
+        let center = CLLocationCoordinate2DMake(location!.coordinate.latitude, location!.coordinate.latitude)
+        
+        let region = MKCoordinateRegion(center: center, span:MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+        
+        self.myMapView.setRegion(region, animated: true)
+        
+        self.locationManager.startUpdatingLocation()
     }
 }
