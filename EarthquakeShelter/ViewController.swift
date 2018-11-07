@@ -14,7 +14,7 @@ class ViewController: UIViewController, MKMapViewDelegate, XMLParserDelegate,CLL
     
     @IBOutlet var myMapView: MKMapView!
     
-     let locationManager = CLLocationManager()
+    let locationManager = CLLocationManager()
     var annotation: BusanData?
     var annotations: Array = [BusanData]()
     
@@ -34,13 +34,9 @@ class ViewController: UIViewController, MKMapViewDelegate, XMLParserDelegate,CLL
         super.viewDidLoad()
         
         self.locationManager.delegate = self
-        
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
         self.locationManager.requestWhenInUseAuthorization()
-        
         self.locationManager.startUpdatingLocation()
-        
         self.myMapView.showsUserLocation = true
         
         if let path = Bundle.main.url(forResource: "Shelter", withExtension: "xml"){
@@ -75,7 +71,6 @@ class ViewController: UIViewController, MKMapViewDelegate, XMLParserDelegate,CLL
         }
         myMapView.showAnnotations(annotations, animated: true)
         myMapView.addAnnotations(annotations)
-        
     }
     
     func zoomToRegion() {
@@ -90,7 +85,6 @@ class ViewController: UIViewController, MKMapViewDelegate, XMLParserDelegate,CLL
     // XML 파서가 시작 테그를 만나면 호출됨
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         currentElement = elementName
-        
     }
     
     // XML 파서가 종료 테그를 만나면 호출됨
@@ -102,7 +96,6 @@ class ViewController: UIViewController, MKMapViewDelegate, XMLParserDelegate,CLL
     
     // 현재 테그에 담겨있는 문자열 전달
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        
         // 공백제거
         let data = string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
         
@@ -110,7 +103,6 @@ class ViewController: UIViewController, MKMapViewDelegate, XMLParserDelegate,CLL
         if !data.isEmpty {
             item[currentElement] = data
         }
-        
     }
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
